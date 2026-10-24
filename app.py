@@ -149,7 +149,8 @@ async def GetAccountInformation(uid, region):
             result["ban_status"] = "🔴 BANNED" if is_banned else "🟢 UNBANNED"
             result["region"] = actual_region
             return result
-    except Exception:
+    except Exception as e:
+        print(f"Error fetching account info: {e}")
         return None
 
 def get_item_name(item_id):
@@ -182,7 +183,7 @@ def ts_to_bst(ts):
     except:
         return "N/A"
 
-@app.route('/info')
+@app.route('/info', methods=['GET'])
 def get_full_info():
     uid = request.args.get('uid')
     if not uid:
@@ -200,8 +201,12 @@ def get_full_info():
         return None
 
     try:
-        account_data = asyncio.run(run_fetch())
-    except Exception:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        account_data = loop.run_until_complete(run_fetch())
+        loop.close()
+    except Exception as e:
+        print(f"Async loop error: {e}")
         account_data = None
 
     if not account_data:
@@ -222,7 +227,7 @@ def get_full_info():
             "Name": basic.get("nickname", "N/A"),
             "UID": uid,
             "Level": basic.get("level", "N/A"),
-            "Region": basic.get("region", "N/A"),
+            "Region": account_data.get("region", "N/A"),
             "Likes": basic.get("liked", "N/A"),
             "HonorScore": credit.get("creditScore", "N/A"),
             "Title": get_item_name(basic.get("title", "0")),
