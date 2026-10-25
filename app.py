@@ -138,7 +138,7 @@ def ts_to_bst(ts):
         return "N/A"
 
 # =============================================
-# এপিআই রাউটসমূহ
+# মূল এপিআই রাউটসমূহ
 # =============================================
 
 @app.route('/token', methods=['GET'])
@@ -204,7 +204,8 @@ def sync_github():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
-@app.route('/info')
+@app.route('/info', methods=['GET'])
+@app.route('/api/v1/player', methods=['GET'])
 def get_full_info():
     uid = request.args.get('uid')
 
@@ -304,7 +305,9 @@ def get_full_info():
         }
     }
 
-    return jsonify(response)
+    resp = jsonify(response)
+    resp.headers.add("Access-Control-Allow-Origin", "*")
+    return resp, 200
 
 @app.route('/')
 def home():
