@@ -34,7 +34,7 @@ MAIN_IV = b'6oyZDr22E3ychjM%'
 # 🟢 আপনার ফিক্সড JWT টোকেন এখানে বসিয়ে দিন (ঐচ্ছিক)
 # =============================================
 STATIC_JWT_TOKENS = {
-    "BD": "",
+    "BD": "eyJhY2NvdW50X2lkIjoxODgyMDk5NTQyMCwibmlja25hbWUiOiJmQzF0WjNWeEtDWTllaXN5Iiwibm90aV9yZWdpb24iOiJCRCIsImxvY2tfcmVnaW9uIjoiQkQiLCJleHRlcm5hbF9pZCI6ImY1MDU3MmJjYTI5MjIzM2IyZDc2ZTQzMDI4NzhhMmU1IiwiZXh0ZXJuYWxfdHlwZSI6NCwicGxhdF9pZCI6MCwiY2xpZW50X3ZlcnNpb24iOiIiLCJjbGllbnRfdmVyc2lvbl9jb2RlIjoiIiwiZW11bGF0b3Jfc2NvcmUiOjEwMCwiaXNfZW11bGF0b3IiOnRydWUsImNvdW50cnlfY29kZSI6IkJEIiwiZXh0ZXJuYWxfdWlkIjo4MzIzOTM3MzQ3LCJyZWdfYXZhdGFyIjoxMDIwMDAwMDcsInNvdXJjZSI6MCwibG9ja19yZWdpb25fdGltZSI6MTc5MjU5Mjg2NCwiY2xpZW50X3R5cGUiOjEsInNpZ25hdHVyZV9tZDUiOiIiLCJ1c2luZ192ZXJzaW9uIjowLCJyZWxlYXNlX2NoYW5uZWwiOiIiLCJyZWxlYXNlX3ZlcnNpb24iOiJPQjU1IiwiZXhwIjoxNzkzMDAyMzU4fQ.f5JAPnknx7DZJUH360RJ8RCvmTTHYPEST3lUcd4CFAk",
     "IND": "",
     "BR": ""
 }
